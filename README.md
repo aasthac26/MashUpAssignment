@@ -7,3 +7,6 @@ pip install Topsis-Aastha-102316009
 
 Run:
 topsis data.csv 1,1,1 +,+,+ result.csv
+
+Link:
+https://pypi.org/project/Topsis-Aastha-102316009/
