@@ -183,5 +183,131 @@ From the results, BlenderBot achieved the highest TOPSIS score and is therefore 
 
 The TOPSIS method proved to be effective for multi-criteria decision-making in model selection.
 
+## Assignment 6 Data Generation using Modelling and Simulation
+
+1. Objective
+
+The objective of this project is to generate synthetic data using a simulation model and evaluate the performance of multiple machine learning models on the generated dataset. The study includes:
+
+Defining a mathematical simulation model
+
+Generating 1000 random simulations
+
+Training and comparing multiple ML models
+
+Evaluating them using weighted performance metrics
+
+2. Simulation Model
+
+A linear system model was used for simulation:
+
+y = a·x₁ + b·x₂ + c·x₃ + ε
+
+Where:
+
+x₁, x₂, x₃ are input features
+
+a, b, c are randomly generated system parameters
+
+ε is the noise term
+
+y is the simulated output
+
+This model represents a simplified stochastic physical system.
+
+3. Parameter Bounds
+| Parameter  | Lower Bound | Upper Bound |
+| ---------- | ----------- | ----------- |
+| a          | 0.5         | 2.0         |
+| b          | -1.0        | 1.0         |
+| c          | 0.1         | 1.5         |
+| Noise      | 0           | 0.2         |
+| x₁, x₂, x₃ | 0           | 10          |
+
+4.Data Generation
+
+Total simulations performed: 1000
+
+Random sampling used for all parameters
+
+Dataset created using simulator outputs
+
+Dataset split:
+
+80% Training
+
+20% Testing
+
+5. Machine Learning Models Used
+
+The following models were trained and evaluated:
+
+Linear Regression
+
+Ridge Regression
+
+Lasso Regression
+
+Decision Tree Regressor
+
+Random Forest Regressor
+
+Gradient Boosting Regressor
+
+6. Evaluation Metrics and Weights
+| Criterion       | Weight |
+| --------------- | ------ |
+| BLEU            | 0.30   |
+| ROUGE           | 0.15   |
+| Time Efficiency | 0.15   |
+| Accuracy (R²)   | 0.15   |
+| Satisfaction    | 0.25   |
+| Total           | 1.00   |
+
+
+Notes:
+
+BLEU and ROUGE were mapped from prediction performance for comparative scoring
+
+Time efficiency was normalized (lower training time gives higher score)
+
+Satisfaction was considered proportional to prediction accuracy
+
+7. Final Score Formula
+
+Final Score = 0.30(BLEU) + 0.15(ROUGE) + 0.15(Time) + 0.15(Accuracy) + 0.25(Satisfaction)
+
+This weighted score was used to rank all models.
+
+8. Results
+
+The bar graph of final scores shows the comparative performance of all models.
+<img width="733" height="622" alt="image" src="https://github.com/user-attachments/assets/db249c24-8f6d-4359-969c-8dccbeddfe29" />
+
+Best performing model: Ridge Regression
+
+Reason:
+
+High prediction accuracy
+
+Robust performance on noisy simulated data
+
+Balanced bias–variance tradeoff
+
+9. Observations
+
+Linear models performed best due to the linear simulation equation
+
+Ridge Regression achieved the highest weighted score
+
+Lasso Regression performed similarly but slightly lower than Ridge
+
+Decision Tree showed moderate performance
+
+Random Forest and Gradient Boosting performed poorly because the dataset lacks non-linear structure
+
+10. Conclusion
+
+Simulation-based data generation was used to create a synthetic linear dataset for evaluating multiple machine learning models. Linear models performed best because the underlying system follows a linear relationship. Ridge Regression achieved the highest final score, followed by Lasso and Linear Regression, while tree-based ensemble models performed poorly due to the absence of non-linear patterns. Weighted multi-metric evaluation provided a more reliable comparison, and Ridge Regression was identified as the most suitable model for this simulation.
 
 
