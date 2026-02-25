@@ -1,0 +1,2 @@
+[console_scripts]
+topsis = topsis_aastha_102316009.__main__:main
