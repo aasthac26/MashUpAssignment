@@ -183,7 +183,7 @@ From the results, BlenderBot achieved the highest TOPSIS score and is therefore 
 
 The TOPSIS method proved to be effective for multi-criteria decision-making in model selection.
 
-## Assignment 6 Data Generation using Modelling and Simulation
+# Assignment 6 Data Generation using Modelling and Simulation
 
 1. Objective
 
