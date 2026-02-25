@@ -11,120 +11,177 @@ topsis data.csv 1,1,1 +,+,+ result.csv
 Link:
 https://pypi.org/project/Topsis-Aastha-102316009/
 
-# TOPSIS-Based Selection of Best Pre-trained Conversational Model
-Objective
 
-The objective of this project is to apply the TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) method to identify the best pre-trained conversational model based on multiple evaluation criteria.
+# TOPSIS-Based Selection of Conversational AI Models
 
-The implementation was performed in a Kaggle notebook using Python.
+## Project Title
+Selection of Best Pre-trained Conversational AI Model Using TOPSIS Method
 
-Alternatives (Conversational Models Evaluated)
+---
 
-DialoGPT
+## Introduction
 
-BlenderBot
+In Natural Language Processing (NLP), many pre-trained models are available for conversational applications such as chatbots and virtual assistants. Each model differs in performance, size, speed, and resource usage.
 
-T5 (Dialogue fine-tuned)
+Selecting the best model becomes difficult when multiple criteria must be considered. To solve this problem, the TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) method is used in this project.
 
-BERT (Retrieval-based conversational setup)
+This project applies TOPSIS to rank different conversational AI models and select the most suitable one.
 
-GPT-2 (Chat fine-tuned)
+---
 
-Evaluation Criteria
-Code	Criterion	Type
-C1	BLEU Score	Benefit ↑
-C2	ROUGE Score	Benefit ↑
-C3	Inference Time	Cost ↓
-C4	Model Size	Cost ↓
-C5	Perplexity	Cost ↓
+## Objective
 
-Benefit criteria are maximized, while cost criteria are minimized.
+The main objective of this project is:
 
-Weights Used
-Criterion	Weight
-BLEU	0.30
-ROUGE	0.15
-Time	0.15
-Size	0.15
-Perplexity	0.25
+- To evaluate multiple pre-trained conversational models.
+- To compare them using multiple performance criteria.
+- To apply the TOPSIS method for ranking.
+- To identify the best-performing model.
 
-Higher importance was given to BLEU and Perplexity as they directly affect conversational response quality.
+---
 
-Methodology – TOPSIS Implementation
-Step 1 – Decision Matrix
+##  Selected Models (Alternatives)
 
-A decision matrix was constructed containing performance values of each model for all five criteria.
+The following conversational models are considered:
 
-Step 2 – Normalization
+1. DialoGPT  
+2. T5 
+3. BERT
+4. BlenderBot  
+5. GPT-2
 
-Vector normalization was applied to remove scale differences:​
-​
-Step 3 – Weighted Normalized Matrix
+These models are widely used for chatbot and dialogue systems.
 
-Each normalized value was multiplied by its respective weight:
+---
 
-​
-​
+## Evaluation Criteria
 
-Step 4 – Ideal Best and Ideal Worst
+Five criteria are selected for evaluation:
 
-Ideal Best (A⁺)
-
-Maximum for BLEU and ROUGE
-
-Minimum for Time, Size, Perplexity
-
-Ideal Worst (A⁻)
-
-Minimum for BLEU and ROUGE
-
-Maximum for Time, Size, Perplexity
-
-Step 5 – Distance Calculation
+| Criterion           | Description                         | Type    |
+| ------------------- | ----------------------------------- | ------- |
+| BLEU Score          | Measures response quality           | Benefit |
+| ROUGE Score         | Measures text overlap quality       | Benefit |
+| Inference Time (ms) | Measures response speed             | Cost    |
+| Model Size (MB)     | Storage requirement                 | Cost    |
+| Perplexity          | Measures language model uncertainty | Cost    |
 
 
+- Benefit Criteria: Higher value is better  
+- Cost Criteria: Lower value is better
 
-Step 6 – TOPSIS Score
-​
+---
 
-​
+##  Weights Assigned
+
+Each criterion is assigned a weight based on its importance:
+
+| Criterion      | Weight   |
+| -------------- | -------- |
+| BLEU Score     | 0.30     |
+| ROUGE Score    | 0.15     |
+| Inference Time | 0.15     |
+| Model Size     | 0.15     |
+| Perplexity     | 0.25     |
+| **Total**      | **1.00** |
 
 
-Higher score ⇒ closer to ideal solution ⇒ better model.
+---
 
-Result Table
-Model	TOPSIS Score	Rank
-BlenderBot	0.724136	1
-DialoGPT	0.671138	2
-GPT-2	0.622072	3
-BERT	0.526934	4
-T5	0.407827	5
 
- Result Graph
+##  Methodology (TOPSIS Steps)
 
-The bar graph represents the TOPSIS score of each conversational model in the original dataset order.
+The TOPSIS method is applied using the following steps:
 
-Observations:
+### Step 1: Construct Decision Matrix
+All alternatives and criteria values are arranged in tabular form.
 
-BlenderBot achieved the highest score, indicating the closest proximity to the ideal solution.
+### Step 2: Normalize the Matrix
+Each value is normalized to remove scale differences using vector normalization.
 
-DialoGPT and GPT-2 showed strong balanced performance.
+### Step 3: Weighted Normalized Matrix
+Normalized values are multiplied by their respective weights.
 
-BERT ranked lower because it is primarily a retrieval-based model rather than a generative conversational model.
+### Step 4: Determine Ideal Solutions
+- Positive Ideal Solution (Best)
+- Negative Ideal Solution (Worst)
 
-T5 received the lowest score due to higher model size and inference time.
+These are selected based on benefit and cost criteria.
 
-Final Conclusion
+### Step 5: Calculate Separation Measures
+The Euclidean distance of each alternative from the ideal best and ideal worst is calculated.
 
-Based on the TOPSIS analysis:
+### Step 6: Calculate Performance Score
+The TOPSIS score is computed using:
 
-BlenderBot is the best pre-trained conversational model
-because it provides:
+C = D⁻ / (D⁺ + D⁻)
 
-Highest conversational quality (BLEU & ROUGE)
+where:
+- D⁺ = Distance from ideal best
+- D⁻ = Distance from ideal worst
 
-Low perplexity
+### Step 7: Ranking
+Models are ranked based on their TOPSIS scores. Higher score means better performance.
 
-Acceptable computational cost
+---
 
-Thus, it has the highest closeness coefficient and is the optimal choice among the evaluated alternatives.
+## Implementation
+
+The TOPSIS algorithm is implemented in Python using:
+
+- NumPy
+- Pandas
+- Matplotlib
+
+---
+
+## Result Table
+
+After execution, the result table is generated
+
+It contains:
+
+- Model Name
+- TOPSIS Score
+- Rank
+
+Example Format:
+
+| Model | TOPSIS Score | Rank |
+|-------|--------------|------|
+| BlenderBot | 0.724136 | 1 |
+| DialoGPT | 0.671138 | 2 |
+
+(The actual values may vary.)
+
+<img width="418" height="205" alt="image" src="https://github.com/user-attachments/assets/ae2e26da-a4dd-4473-a250-9800b1eaea90" />
+
+
+---
+
+## Result Graph
+
+A bar graph of TOPSIS scores is generated
+
+
+The graph shows:
+
+- X-axis: Models
+- Y-axis: TOPSIS Score
+
+<img width="828" height="577" alt="image" src="https://github.com/user-attachments/assets/91c6fe0e-5b4c-492c-beb6-56088a3a9b67" />
+
+
+
+---
+
+## Conclusion
+
+Based on the TOPSIS analysis, the model with the highest performance score is selected as the best conversational AI model.
+
+From the results, BlenderBot achieved the highest TOPSIS score and is therefore considered the most suitable model among the selected alternatives.
+
+The TOPSIS method proved to be effective for multi-criteria decision-making in model selection.
+
+
+
