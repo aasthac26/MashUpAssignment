@@ -216,6 +216,7 @@ y is the simulated output
 This model represents a simplified stochastic physical system.
 
 3. Parameter Bounds
+   
 | Parameter  | Lower Bound | Upper Bound |
 | ---------- | ----------- | ----------- |
 | a          | 0.5         | 2.0         |
@@ -223,6 +224,7 @@ This model represents a simplified stochastic physical system.
 | c          | 0.1         | 1.5         |
 | Noise      | 0           | 0.2         |
 | x₁, x₂, x₃ | 0           | 10          |
+
 
 4.Data Generation
 
@@ -255,6 +257,7 @@ Random Forest Regressor
 Gradient Boosting Regressor
 
 6. Evaluation Metrics and Weights
+
 | Criterion       | Weight |
 | --------------- | ------ |
 | BLEU            | 0.30   |
