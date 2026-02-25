@@ -1,8 +1,0 @@
-Metadata-Version: 2.4
-Name: Topsis-Aastha-102316009
-Version: 0.1.1
-Summary: TOPSIS command line implementation
-Author: Aastha
-Requires-Python: >=3.8
-Requires-Dist: numpy
-Requires-Dist: pandas
